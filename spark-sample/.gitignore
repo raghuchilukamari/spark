@@ -75,9 +75,10 @@ target/
 *.iml
 *.iws
 
-#Maven
+
 log/
-target/
+Data/
+/spark-warehouse/
 
 
 

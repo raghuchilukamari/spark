@@ -1,0 +1,33 @@
+
+DataFrames and Datasets:
+	* Primary level of abstraction in Spark
+	* Collection of objects distributed acorss cluster
+	* Immutable
+	* Fault Tolerant
+	* Persist or cache
+	* Data stored in tabular format
+ 
+	DataFrame - No defined schema (Exception: programatically assigned schema - In this case both will be same) 
+	DataSet - Defined/known Schema
+	
+	DataFrame can be converted to Dataset of type T using case class and inferring schema by reflection
+	Once we know schema and type of each column - df.as[T] converts DF to a DS
+
+RDDS:
+	Basic builing blocks of spark
+	When we create DSs spark uses RDD under the hood for final computation
+	RDDs can be used for advanced operations in spark
+
+Schema:
+	Logical visualization of how data is stored
+	By default spark stores datasets in tabular format
+	
+	Define schema using CaseClass:
+		use when you know columns and types at run time
+		Only 22 fields
+	Define schema programatically:
+		use when you dont know columns and types at run time
+		more than 22 fields
+
+
+
