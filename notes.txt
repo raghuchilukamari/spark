@@ -30,4 +30,36 @@ Schema:
 		more than 22 fields
 
 
+spark submit mode - 
+	Local - Driver program and workers in same JVM 
+	Standalone - Install by placing compiled version of Spark on each cluster node
+	Yarn-cluster : Driver launched from worker process inside cluster, Async
+	Yarn-client : Driver launches in the client process that submitted the job, sync
+	Mesos
+	
+SparkHistoryServer Direct Port Access - http://<ip address>:18080
+Monitor Spark Applications in Real-Time - http://<ip address>:4040
+
+
+Common slow performace issues: 
+	Level of parallellism - Each task takes a core, and each partition is typically a task - so manage partitions
+	Serialization format
+	Memory Management - 60% is RDD - use persist(MEMORY_AND_DISK)
+
+some properties of job:
+	spark.executor.memory – This indicates the amount of memory to be used per executor.
+
+	spark.serializer – Class used to serialize objects that will be sent over the network. Use the org.apache.spark.serializer.JavaSerializer class to get better performance, since the default java serialization is quite slow.
+	
+	spark.kryo.registrator – Class used to register the custom classes if you use the Kyro serialization
+	
+	org.apache.spark.sql.Encoders – Specialized class used to serialize Dataset objects
+	
+	spark.local.dir – Locations that Spark uses as scratch space to store the map output files.
+
+	spark.eventLog.enabled=true - UI is live even after job is killed
+
+
+Logical Plan - user code creates it - ThE DAG
+Physical Plan - When an action is encountered, the DAG is translated into a physical plan.
 
